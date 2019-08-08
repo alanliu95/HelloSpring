@@ -69,7 +69,7 @@
       <artifactId>commons-dbcp</artifactId>
       <version>${commons-dbcp.version}</version>
     </dependency>
-
+    <!--spring 默认日志门面-->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>jcl-over-slf4j</artifactId>
