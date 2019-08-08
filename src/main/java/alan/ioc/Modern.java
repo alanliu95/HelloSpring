@@ -1,4 +1,4 @@
-package alan.spring.ioc;
+package alan.ioc;
 
 import org.springframework.stereotype.Component;
 

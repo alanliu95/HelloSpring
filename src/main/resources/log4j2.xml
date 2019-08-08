@@ -10,7 +10,7 @@
 <Root level="INFO">
 <AppenderRef ref="Console"/>
 </Root>
-<logger name="alan.spring.jdbc.dao.UserDao" level="DEBUG">
+<logger name="alan.orm.springjdbc.UserDao" level="DEBUG">
 
 </logger>
 </Loggers>

@@ -6,17 +6,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--开启包 alan.spring.jdbc.* 自动装配-->
-    <context:component-scan base-package="alan.spring.jdbc"></context:component-scan>
+    <context:component-scan base-package="alan.orm.springjdbc"></context:component-scan>
 
     <!--引入配置文件中的键值对-->
     <context:property-placeholder location="classpath:jdbc.properties" />
+    <!--创建数据库连接池管理类-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close"
           p:driverClassName="${jdbc.driverClassName}"
           p:url="${jdbc.url}"
           p:username="${jdbc.username}"
           p:password="${jdbc.password}" />
-
+    <!--创建jdbcTemplate-->
     <bean id="jdbcTemplate"
           class="org.springframework.jdbc.core.JdbcTemplate"
           p:dataSource-ref="dataSource"/>

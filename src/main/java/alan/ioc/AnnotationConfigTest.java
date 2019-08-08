@@ -1,4 +1,4 @@
-package alan.spring.ioc;
+package alan.ioc;
 import static java.lang.System.*;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

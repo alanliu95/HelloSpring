@@ -1,8 +1,21 @@
-package alan.spring.jdbc;
+package alan.orm;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="users")
 public class User {
+    @Id
+    @Column(name="user_id")
     private int id;
+
+    @Column(name="user_name")
     private String name;
+
+    @Column(name="user_pw")
     private String pw;
 
     public String getName() {

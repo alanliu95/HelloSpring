@@ -1,4 +1,4 @@
-package alan.spring;
+package alan;
 
 import static org.junit.Assert.assertTrue;
 

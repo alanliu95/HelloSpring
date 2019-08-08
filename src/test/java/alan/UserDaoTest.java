@@ -1,7 +1,7 @@
-package alan.spring;
+package alan;
 
-import alan.spring.jdbc.User;
-import alan.spring.jdbc.dao.UserDao;
+import alan.orm.User;
+import alan.orm.springjdbc.UserDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 //使Juint 创建spring 环境
 @RunWith(SpringJUnit4ClassRunner.class)
 //指定用哪个配置启动spring ioc 容器
-@ContextConfiguration(locations = {"classpath:spring-jdbc.xml"})
+@ContextConfiguration(locations = {"classpath:springjdbc-beans.xml"})
 public class UserDaoTest {
     @Autowired
     private UserDao userDao;

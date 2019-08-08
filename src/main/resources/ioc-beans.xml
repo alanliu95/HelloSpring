@@ -11,8 +11,8 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
             </constructor-arg>
         </bean>
     -->
-    <bean id="modern" class="alan.spring.ioc.Modern"></bean>
-    <bean id="cdPlayer" class="alan.spring.ioc.CDPlayer">
+    <bean id="modern" class="alan.ioc.Modern"></bean>
+    <bean id="cdPlayer" class="alan.ioc.CDPlayer">
         <property name="cd" ref="modern"></property>
     </bean>
 </beans>
