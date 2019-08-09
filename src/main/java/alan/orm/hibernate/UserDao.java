@@ -20,12 +20,6 @@ public class UserDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
 
-    //增加一条记录
-//    public void insertOne(User user){
-//        Object[] params=new Object[]{user.getName(),user.getPw()};
-//        jdbcTemplate.update(insertOne,params,new int[]{Types.VARCHAR,Types.VARCHAR});
-//    }
-
     //检索记录,根据id
     public User selectOnebyId(int user_id){
         logger.debug("查询记录");

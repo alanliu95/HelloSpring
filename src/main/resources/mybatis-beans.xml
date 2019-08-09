@@ -10,8 +10,10 @@
     <context:component-scan base-package="alan.orm.mybatis" resource-pattern="**/mybatis/*.class"/>
 
     <!--引入配置文件中的键值对-->
+    <!--无法工作-->
     <context:property-placeholder location="classpath:jdbc.properties" />
     <!--创建数据库连接池管理类-->
+    <!--mybatis 自己提供集成到spring ioc机制，导致<context:property-placeholder> 不起作用-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close"
           p:driverClassName="com.mysql.jdbc.Driver"
