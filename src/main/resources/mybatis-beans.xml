@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <context:component-scan base-package="alan.orm.mybatis" resource-pattern="**/mybatis/*.class"/>
+
+    <!--引入配置文件中的键值对-->
+    <context:property-placeholder location="classpath:jdbc.properties" />
+    <!--创建数据库连接池管理类-->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close"
+          p:driverClassName="com.mysql.jdbc.Driver"
+          p:url="jdbc:mysql://alannnn.tpddns.cn:3306/spring"
+          p:username="root"
+          p:password="alan" />
+
+    <!--SqlSessionFactory-->
+    <!--指定mybatis配置文件、映射文件-->
+    <bean id="sqlSessionFactory"
+          class="org.mybatis.spring.SqlSessionFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:configLocation="classpath:myBatisConfig.xml"
+          p:mapperLocations="classpath:mybatis/UserMapper.xml"/>
+
+    <!--模板类 SqlSessionTemplate-->
+    <bean class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg ref="sqlSessionFactory"/>
+    </bean>
+
+    <!--转换器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
+          p:sqlSessionFactory-ref="sqlSessionFactory"
+          p:basePackage="alan.orm.mybatis"/>
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+          p:dataSource-ref="dataSource"/>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

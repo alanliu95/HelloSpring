@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="alan.orm.mybatis.UserDao">
+    <select id="selectOnebyId" resultType="User" parameterType="int" >
+        SELECT
+            *
+        FROM users
+        WHERE user_id = #{id}
+    </select>
+
+    <insert id="insertOne" parameterType="User">
+        INSERT INTO users(user_name,user_pw)
+        VALUES(#{name},#{pw})
+    </insert>
+
+    <update id="update" parameterType="User">
+        UPDATE users f
+        SET user_pw=#{pw}
+        WHERE f.user_id = #{id}
+    </update>
+
+<!--    <select id="findForumByName" resultType="Forum" parameterType="string">-->
+<!--        SELECT-->
+<!--            forum_id  forumId,-->
+<!--            forum_name  forumName,-->
+<!--            forum_desc  forumDesc-->
+<!--        FROM t_forum f-->
+<!--        WHERE f.forum_name LIKE #{forumName}-->
+<!--    </select>-->
+</mapper>
