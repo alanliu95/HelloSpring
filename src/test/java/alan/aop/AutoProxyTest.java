@@ -21,13 +21,14 @@ public class AutoProxyTest {
 //        waiter.serveTo("Alan");
 //    }
 
-//    @Autowired
-//    NaiveWaiter naiveWaiter;
     @Autowired
-    ApplicationContext atx;
+    NaiveWaiter naiveWaiter;
+
+//    @Autowired
+//    ApplicationContext atx;
     @Test
     public void advisorTest(){
-        NaiveWaiter naiveWaiter=(NaiveWaiter) atx.getBean("target");
+        //NaiveWaiter naiveWaiter=(NaiveWaiter) atx.getBean("target");
         naiveWaiter.greetTo("alan");
         naiveWaiter.serveTo("alan");
     }
