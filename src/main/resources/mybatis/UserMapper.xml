@@ -4,7 +4,7 @@
 <mapper namespace="alan.orm.mybatis.UserDao">
     <select id="selectOnebyId" resultType="User" parameterType="int" >
         SELECT
-            *
+            user_id as id,user_name as name, user_pw as pw
         FROM users
         WHERE user_id = #{id}
     </select>

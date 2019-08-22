@@ -4,7 +4,7 @@ package alan.orm.mybatis;
 import alan.orm.User;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public interface UserDao {
     public void insertOne(User user);
 

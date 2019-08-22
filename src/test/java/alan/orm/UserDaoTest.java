@@ -1,4 +1,4 @@
-package alan;
+package alan.orm;
 
 import alan.orm.User;
 import alan.orm.springjdbc.UserDao;
