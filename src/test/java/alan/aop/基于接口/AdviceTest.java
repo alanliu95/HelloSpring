@@ -1,18 +1,24 @@
-package alan.aop;
+package alan.aop.基于接口;
 
-import javafx.application.Application;
+import alan.aop.NaiveWaiter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+
+/**
+ * 基于ProxyFactoryBean手工生成代理类
+ * 为ProxyFactoryBean指定具体增强类，可以生成代理接口（或类）
+ * 为ProxyFactoryBean指定具体切面，可以生成代理接口（或类）
+ */
+
 @RunWith(SpringJUnit4ClassRunner.class)
-//指定用哪个配置启动spring ioc 容器
-@ContextConfiguration(locations = {"classpath:autoProxy-beans.xml"})
-public class AutoProxyTest {
+@ContextConfiguration(locations = {"classpath:advisor-beans.xml"})
+public class AdviceTest {
+    //使用jdk 动态代理
 //    @Autowired
 //    Waiter waiter;
 //    @Test
@@ -22,13 +28,10 @@ public class AutoProxyTest {
 //    }
 
     @Autowired
+    @Qualifier("NaiveWaiter")
     NaiveWaiter naiveWaiter;
-
-//    @Autowired
-//    ApplicationContext atx;
     @Test
     public void advisorTest(){
-        //NaiveWaiter naiveWaiter=(NaiveWaiter) atx.getBean("target");
         naiveWaiter.greetTo("alan");
         naiveWaiter.serveTo("alan");
     }

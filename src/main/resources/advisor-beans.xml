@@ -7,7 +7,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     <bean id="target" class="alan.aop.NaiveWaiter"/>
-    <bean id="greetingAdvice" class="alan.aop.GreetingBeforeAdvice"/>
+    <bean id="greetingAdvice" class="alan.aop.基于接口.GreetingBeforeAdvice"/>
 
     <!--    这里代理的是接口Waiter-->
     <!--    <bean id="waiter" class="org.springframework.aop.framework.ProxyFactoryBean"-->
@@ -16,7 +16,7 @@
     <!--    p:target-ref="target"/>-->
 
     <!--依赖增强类    -->
-    <bean id="greetingAdvisor" class="alan.aop.GreetingAdvisor" p:advice-ref="greetingAdvice"/>
+    <bean id="greetingAdvisor" class="alan.aop.基于接口.GreetingAdvisor" p:advice-ref="greetingAdvice"/>
     <!--该类即可以只接受增强类 也可以接受切面类    -->
     <!-- 只在这个地方指定了最终的需要代理的目标类，实现了解耦，   -->
     <bean id="NaiveWaiter" class="org.springframework.aop.framework.ProxyFactoryBean"

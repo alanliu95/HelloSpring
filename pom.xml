@@ -19,9 +19,21 @@
     <mysql.version>5.1.29</mysql.version>
     <slf4j.version>1.7.25</slf4j.version>
     <commons-dbcp.version>1.4</commons-dbcp.version>
+    <aspectj.version>1.8.1</aspectj.version>
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>${aspectj.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>${aspectj.version}</version>
+    </dependency>
     <!-- Spring Core -->
     <!-- http://mvnrepository.com/artifact/org.springframework/spring-core -->
     <dependency>

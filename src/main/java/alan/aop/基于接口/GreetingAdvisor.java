@@ -1,4 +1,4 @@
-package alan.aop;
+package alan.aop.基于接口;
 
 import org.springframework.aop.ClassFilter;
 import org.springframework.aop.support.StaticMethodMatcherPointcutAdvisor;
